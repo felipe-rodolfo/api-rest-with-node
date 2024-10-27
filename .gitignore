@@ -2,6 +2,6 @@
 package-lock.json
 .env
 tmp/app.db
-db/
+db/*.db
 .env.test
 dist
