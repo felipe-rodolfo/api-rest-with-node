@@ -4,3 +4,4 @@ package-lock.json
 tmp/app.db
 db/
 .env.test
+dist

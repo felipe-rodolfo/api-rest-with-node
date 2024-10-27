@@ -45,4 +45,21 @@ describe('Transactions routes', () => {
 
     expect(response.body.transactions).toHaveLength(0)
   })
+
+  it('Should be able to get a specific transaction', async () => {
+    const createTransactionResponse = await request(app.server)
+      .post('/transactions')
+      .send({
+        title: 'New Transaction',
+        amount: 5000,
+        type: 'credit',
+      })
+
+    const cookies = createTransactionResponse.get('Set-Cookie')
+    const transactionId = createTransactionResponse.body.transaction.id
+    await request(app.server)
+      .get(`/transactions/${transactionId}`)
+      .set('Cookie', cookies)
+      .expect(200)
+  })
 })
