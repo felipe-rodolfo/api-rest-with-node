@@ -8,8 +8,6 @@ const clientdb =
       }
     : env.DATABASE_URL
 
-console.log('AQUIIIIIIIIII' + clientdb)
-
 export const config: Knex.Config = {
   client: env.DATABASE_CLIENT,
   connection: clientdb,
